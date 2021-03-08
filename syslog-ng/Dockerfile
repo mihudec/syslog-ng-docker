@@ -4,7 +4,7 @@ LABEL maintainer="Miroslav Hudec <miroslav.hudec@a;ef.com>"
 
 RUN apt-get update -qq && apt-get install -y \
     wget \
-    gpgv
+    gnupg2
 
 RUN wget -qO - https://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-ng/xUbuntu_20.04/Release.key | apt-key add -
 RUN echo 'deb http://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-ng/xUbuntu_20.04 ./' | tee --append /etc/apt/sources.list.d/syslog-ng-obs.list
