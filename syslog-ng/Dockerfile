@@ -13,10 +13,7 @@ RUN rm -f /tmp/repo.key
 RUN echo 'deb http://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-ng/xUbuntu_20.04 ./' | tee --append /etc/apt/sources.list.d/syslog-ng-obs.list
 
 RUN apt-get update -qq && apt-get install -y \
-    libdbd-mysql \
-    libdbd-pgsql \
-    libdbd-sqlite3 \
-    syslog-ng
+    syslog-ng-core
 
 ADD syslog-ng.conf /etc/syslog-ng/syslog-ng.conf
 
