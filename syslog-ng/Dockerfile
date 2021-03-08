@@ -6,9 +6,10 @@ RUN apt-get update -qq && apt-get install -y \
     wget \
     gnupg2
 
-RUN wget https://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-ng/xUbuntu_20.04/Release.key
-RUN apt-key add Release.key
-RUN rm -f Release.key
+ADD repo.key /tmp/repo.key
+RUN apt-key add /tmp/repo.key
+RUN rm -f /tmp/repo.key
+
 RUN echo 'deb http://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-ng/xUbuntu_20.04 ./' | tee --append /etc/apt/sources.list.d/syslog-ng-obs.list
 
 RUN apt-get update -qq && apt-get install -y \
